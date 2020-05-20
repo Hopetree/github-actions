@@ -11,8 +11,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    
+
     - name: docker pull
       run: |
         docker pull hopetree/izone:latest
+        docker pull registry.cn-shenzhen.aliyuncs.com/tendcode/izone:latest
         docker images
