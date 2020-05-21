@@ -2,7 +2,7 @@ name: docker build test
 
 on:
   push:
-    branches: []
+    branches: [ master ]
   pull_request:
     branches: [ master ]
 
@@ -16,6 +16,9 @@ jobs:
         ref: ad
 
     - name: Build the Docker image
+      env:
+        IMAGE_NAME: hopetree/izone
+        IMAGE_TAG: latest
       run: |
-        pwd
-        docker build . --file Dockerfile --tag my-image-name:$(date +%s)
+        docker build . --file Dockerfile --tag ${IMAGE_NAME}:${IMAGE_TAG}
+        docker images
