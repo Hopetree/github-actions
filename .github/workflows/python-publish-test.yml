@@ -28,3 +28,5 @@ jobs:
       run: |
         tag=`echo ${TAG_NAME}|awk -F/ '{print $3}'`
         echo "THE TAG IS ${tag}"
+        sed -i "s/1.0.1/${tag}/g" setup_test.py
+        cat setup_test.py
